@@ -4,9 +4,9 @@ from glob import glob
 import plotly.express as px
 import plotly.graph_objects as go
 import os
-import pymedphys
 import numpy as np
 
+from site_packages import pymedphys
 from helpers import calc_coordinates
 
 st.logo(image="images/logo.png", icon_image="images/icon.png")

@@ -5,14 +5,9 @@ from glob import glob
 import plotly.express as px
 import plotly.graph_objects as go
 import os
-import pymedphys
-import pymedphys._dev.paths
 
+from site_packages import pymedphys
 from helpers import calc_coordinates
-
-pymedphys._dev.paths.LIBRARY_PATH = (
-    pymedphys._dev.paths.REPO_ROOT.joinpath("site-packages", "pymedphys")
-)
 
 st.logo(image="images/logo.png", icon_image="images/icon.png")
 
