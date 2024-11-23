@@ -6,29 +6,13 @@ import plotly.express as px
 import plotly.graph_objects as go
 import os
 import pymedphys
-
+import pymedphys._dev.paths
 
 from helpers import calc_coordinates
 
-# Define the path to the file
-file_path = '/home/adminuser/venv/lib/python3.10/site-packages/pymedphys/_dev/paths.py'
-
-# Read the file contents
-with open(file_path, 'r') as file:
-    lines = file.readlines()
-
-# Modify the specific line
-for i, line in enumerate(lines):
-    if line.strip() == 'LIBRARY_PATH = REPO_ROOT.joinpath("lib", "pymedphys")':
-        lines[i] = 'LIBRARY_PATH = REPO_ROOT.joinpath("site-packages", "pymedphys")\n'
-        break
-
-# Write the modified contents back to the file
-with open(file_path, 'w') as file:
-    file.writelines(lines)
-
-print("File updated successfully!")
-
+pymedphys._dev.paths.LIBRARY_PATH = (
+    pymedphys._dev.paths.REPO_ROOT.joinpath("site-packages", "pymedphys")
+)
 
 st.logo(image="images/logo.png", icon_image="images/icon.png")
 
