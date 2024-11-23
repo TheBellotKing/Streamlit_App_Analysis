@@ -10,6 +10,26 @@ import pymedphys
 
 from helpers import calc_coordinates
 
+# Define the path to the file
+file_path = '/home/adminuser/venv/lib/python3.10/site-packages/pymedphys/_dev/paths.py'
+
+# Read the file contents
+with open(file_path, 'r') as file:
+    lines = file.readlines()
+
+# Modify the specific line
+for i, line in enumerate(lines):
+    if line.strip() == 'LIBRARY_PATH = REPO_ROOT.joinpath("lib", "pymedphys")':
+        lines[i] = 'LIBRARY_PATH = REPO_ROOT.joinpath("site-packages", "pymedphys")\n'
+        break
+
+# Write the modified contents back to the file
+with open(file_path, 'w') as file:
+    file.writelines(lines)
+
+print("File updated successfully!")
+
+
 st.logo(image="images/logo.png", icon_image="images/icon.png")
 
 def refind_pulses(df: pd.DataFrame, maximum_non_pulse: float, pulse_range: int = 5) -> pd.DataFrame:
