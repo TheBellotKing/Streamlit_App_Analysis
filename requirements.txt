@@ -1,0 +1,5 @@
+streamlit==1.38
+numpy==2.1.0
+pandas==2.2.2
+plotly==5.24.0
+pymedphys==0.40.0
